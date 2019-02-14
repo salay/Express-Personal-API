@@ -82,45 +82,42 @@ app.get('/api/profile', (req, res) => {
 });
 
 app.get('/api/selfcare', (req, res) => {
-  db.selfCare.find(function (err, selfCare) {
+  db.selfCare.find(function (err, selfCareItem) {
     if (err) {
           console.log("error: " + err);
         }
-        res.json(selfCare);
+        res.json(selfCareItem);
   });
 })
 
 
 
-// app.get('/api/books', (req, res) => {
-// // send all books as JSON response
-//  db.Book.find(function(err, books){
-//   if (err) {
-//     console.log("index error: " + err);
-//     res.sendStatus(500);
-//   }
-//   res.json(books);
 
 
+// app.post('/api/selfcare', (req, res) => {
+//   //create new selfcare item
+//   let newSelfCare = new db.selfCare({
+//     OBJECT
+//   })
+// })
 
 
-// // create new book
-// app.post('/api/books', function (req, res) {
+// let newTodo = req.body;
+
+// // create new todo in db
+// newTodo.create(newTodo, (err, savedTodo) => {
+//     if(err) { return console.log(err) }
+//     res.json(savedTodo);
+// });
+// });
+
+// app.post('/api/books', (req, res) => {
 //   // create new book with form data (`req.body`)
-//   const newBook = new db.Book ({
+//   let newBook = new db.Book({
 //     title: req.body.title,
 //     image: req.body.image,
-//     author: req.body.author,
-//     releaseDate: req.body.date
+//     releaseDate: req.body.releaseDate,
 //   });
-//   newBook.save((err, newBook) => {
-//     if (err) {
-//       throw err;
-//     }
-//     console.log(` saved ${newBook.title}`)
-//     res.json(newBook);
-//   })
-// });
 
 /**********
  * SERVER *
@@ -130,3 +127,6 @@ app.get('/api/selfcare', (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log('Express server is up and running on http://localhost:3000/');
 });
+
+
+
