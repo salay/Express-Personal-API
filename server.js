@@ -91,15 +91,15 @@ app.get('/api/selfcare', (req, res) => {
 })
 
 
-
-
-
-// app.post('/api/selfcare', (req, res) => {
-//   //create new selfcare item
-//   let newSelfCare = new db.selfCare({
-//     OBJECT
-//   })
-// })
+app.post('/api/selfcare', (req, res) => {
+  //create new selfcare item
+  let newSelfCare = new db.selfCare({
+    task: req.body.task,
+    description: req.body.description,
+    byWhen: req.body.byWhen,
+    dateCompleted: req.body.dateCompleted
+  });
+})
 
 
 // let newTodo = req.body;

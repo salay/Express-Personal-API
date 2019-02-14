@@ -23,6 +23,25 @@
           <h1>Under Construction</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
         </div>
+        <div class="form-container">
+          <form class="form-inline" id="newSelfCare" method="POST" action = "http://localhost:3000/api/selfcare">
+            <div class="form-group">
+              <input type="text" name="task" class="form-control" placeholder="Task" autofocus>
+            </div>
+            <div class="form-group">
+              <input type="text" name="description" class="form-control" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <input type="text" name="byWhen" class="form-control" placeholder="What date & Time will you complete this">
+            </div>
+            <div class="form-group">
+              <input type="text" name="dateCompleted" class="form-control" placeholder="When Task Was Completed">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-default" value="Add Self Care Item">
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </body>
