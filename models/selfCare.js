@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const selfCareSchema = new Schema ({
+const SelfCareSchema = new Schema ({
     task: String,
     description: String,
     byWhen: String,
@@ -9,6 +9,6 @@ const selfCareSchema = new Schema ({
     cost: Number
 });
 
-const selfCare = mongoose.model("SelfCare", selfCareSchema);
+const SelfCare = mongoose.model("SelfCare", SelfCareSchema);
 
-module.exports = selfCare;
+module.exports = SelfCare;

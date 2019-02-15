@@ -23,8 +23,10 @@
           <h1>Under Construction</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
         </div>
+      </div>
+      WHATS GOING ON?
         <div class="form-container">
-          <form class="form-inline" id="newSelfCare" method="POST" action = "http://localhost:3000/api/selfcare">
+          <form class="form-inline" id="selfCareForm" method="POST" action = "http://localhost:3000/api/selfcare">
             <div class="form-group">
               <input type="text" name="task" class="form-control" placeholder="Task" autofocus>
             </div>
@@ -42,7 +44,10 @@
             </div>
           </form>
         </div>
-      </div>
+        <br>
+      <ul id="selfCareList">
+
+      </ul>
     </div>
   </body>
 </html>

@@ -20,7 +20,7 @@
  }, 
  ]
 
- db.selfCare.create(newSelfCare, function (err, selfCare){
+ db.SelfCare.create(newSelfCare, function (err, selfCare){
     if (err){
            return console.log("Error:", err);
     }

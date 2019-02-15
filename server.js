@@ -82,25 +82,93 @@ app.get('/api/profile', (req, res) => {
 });
 
 app.get('/api/selfcare', (req, res) => {
-  db.selfCare.find(function (err, selfCareItem) {
+  db.SelfCare.find({}, function (err, selfCareItem) {
     if (err) {
-          console.log("error: " + err);
-        }
-        res.json(selfCareItem);
+      console.log("error: " + err);
+    }
+    res.json(selfCareItem);
   });
 })
 
 
 app.post('/api/selfcare', (req, res) => {
   //create new selfcare item
-  let newSelfCare = new db.selfCare({
+  let newSelfCare = new db.SelfCare({
     task: req.body.task,
     description: req.body.description,
     byWhen: req.body.byWhen,
     dateCompleted: req.body.dateCompleted
   });
+    newSelfCare.save(function(err, book){
+        if (err) {
+          console.log("erro: " + err);
+        }
+        console.log("created ", newSelfCare);
+        res.json(newSelfCare);
+      });
 })
 
+
+// app.post('api/selfcare', function(req, res){
+// let newTask = req.body;
+//  newTask.create(newTask, (err, savedTask) => {
+//     if(err) { return console.log(err) }
+//     res.json(savedTodo);
+
+// })
+
+
+
+
+
+
+
+app.put('/api/selfcare/:id', function(req,res){
+  // get book id from url params (`req.params`)
+    console.log('updated selfcare list: ', req.params);
+    const id = req.params.id;
+    db.SelfCare.findOneAndUpdate(
+      { _id: id},
+      req.body,
+      {new: true},
+      (err, updatedSelfCare) => {
+      if (err) {
+        console.log("the error is " + err);
+      }
+      res.json(updatedSelfCare);
+    });
+  });
+
+
+
+
+app.delete('/api/selfcare/:id', function (req, res) {
+  console.log('deleted selfcare is ', req.params);
+  let id = req.params.id;
+ db.SelfCare.findOneAndDelete
+  ( _id = id, 
+  (err, deletedItem) => {
+    if (err) {
+      console.log("the error is " + err);
+    }
+     res.json(deletedItem);
+   });
+})
+
+
+
+
+// db.selfCare.create(newWish, (err, savedWish) => {
+//   if(err) { return console.log(err) }
+//   res.json(savedWish);
+// })
+// newBook.save(function(err, book){
+//   if (err) {
+//     console.log("create error: " + err);
+//   }
+//   console.log("created ", book.title);
+//   res.json(book);
+// });
 
 // let newTodo = req.body;
 
